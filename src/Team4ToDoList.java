@@ -1,7 +1,11 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Team4ToDoList {
+	ArrayList<ListItem> al = new ArrayList<ListItem>();
+	private int iD;
+	
 	public static void main(String[] args){
 		boolean exit = false;
 		do {
@@ -61,5 +65,89 @@ public class Team4ToDoList {
 			System.out.println(s);
 		}
 		
+	}
+	
+	public boolean AddToDoListItem(String name, Date dueDate){
+		try{
+			ListItem li = new ListItem();
+			li.setName(name);
+			li.setID(iD);
+			li.setDueDate(dueDate);
+			li.setDone(false);
+			al.add(li);
+			iD++;
+		
+			return true;
+		}
+		catch(Exception ex){
+			return false;
+		}
+	}
+	
+	public boolean RemoveToDoListItemByName(String name){
+		boolean result = false;
+		
+		for(int i=0;i<al.size();i++){
+			if(al.get(i).getName().equals(name)){
+				al.remove(i);
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	public boolean RemoveToDoListItemByID(int id){
+		boolean result = false;
+		
+		for(int i=0;i<al.size();i++){
+			if(al.get(i).getID() == id){
+				al.remove(i);
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+
+	public boolean ModifyToDoListItemName(int id, String newName) {
+		boolean result = false;
+		for(int i=0;i<al.size();i++){
+			if(al.get(i).getID() == id){
+				al.get(i).setName(newName);;
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+
+	public boolean ModifyToDoListItemDueDate(int id, Date newDate) {
+		boolean result = false;
+		for(int i=0;i<al.size();i++){
+			if(al.get(i).getID() == id){
+				al.get(i).setDueDate(newDate);;
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+
+	public boolean ModifyToDoListItemDone(int id, boolean newDone) {
+		boolean result = false;
+		for(int i=0;i<al.size();i++){
+			if(al.get(i).getID() == id){
+				al.get(i).setDone(newDone);;
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
 	}
 }
