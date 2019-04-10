@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Team4ToDoList {
 	ArrayList<ListItem> al = new ArrayList<ListItem>();
-	private int iD;
+	int iD = 0;
 	
+	/*
 	public static void main(String[] args){
 		boolean exit = false;
 		do {
@@ -14,7 +15,9 @@ public class Team4ToDoList {
 			if (input==9) exit=true;
 		} while (!exit);
 	}
+	*/
 	
+	/*
 	public static void showMenu(){
 		System.out.println("Welcome to To Do List Application");
 		showCurrentList();
@@ -26,7 +29,9 @@ public class Team4ToDoList {
 		System.out.println("9. Quit");
 		System.out.print("Enter your choice: ");
 	}
+	*/
 	
+	/*
 	public static int readInput(){
 		Scanner scanner = new Scanner(System.in);
 		int input = scanner.nextInt();	
@@ -50,12 +55,12 @@ public class Team4ToDoList {
 		default:
 			System.out.println("Invalid choice");
 		}
-		
-		
 		return input;
 	}
+	*/
 	
-	public static void showCurrentList(){
+	/*
+	public void display(){
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("Fix bug no 1");
 		list.add("Fix bug no 2");
@@ -66,6 +71,18 @@ public class Team4ToDoList {
 		}
 		
 	}
+	*/
+	
+	public ArrayList<ListItem> getToDoList() { return al; }
+	
+	public ListItem getListItem(String name) {
+		for(ListItem item: al) {
+            if (item.getName().equals(name))
+            	return item;
+        }
+		
+		return null;
+	}
 	
 	public boolean AddToDoListItem(String name, Date dueDate){
 		try{
@@ -75,7 +92,6 @@ public class Team4ToDoList {
 			li.setDueDate(dueDate);
 			li.setDone(false);
 			al.add(li);
-			iD++;
 		
 			return true;
 		}
