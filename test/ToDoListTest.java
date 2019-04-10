@@ -1,8 +1,9 @@
-import static org.junit.Assert.*;
-import org.junit.Test;
-import Team4ToDoList;
+package test;
 
-public class ToDoListTest {
+import junit.framework.TestCase;
+import org.junit.Test;
+
+public class ToDoListTest extends TestCase {
 
 	@Test
 	public void testAddItem() {
