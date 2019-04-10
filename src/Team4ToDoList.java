@@ -17,12 +17,14 @@ public class Team4ToDoList {
 	
 	public static void showMenu(){
 		System.out.println("Team 4 Application");
-		showCurrentList();
+		//showCurrentList();
 		System.out.println("Menu: ");
 		System.out.println("1. List all to do list");
 		System.out.println("2. Add new item");
 		System.out.println("3. Delete an item");
 		System.out.println("4. Mark an item as complete");
+		System.out.println("5. Sort list according to priority");
+		System.out.println("6. Sort list according to due date");
 		System.out.println("9. Quit");
 		System.out.print("Enter your choice: ");
 	}
@@ -34,6 +36,7 @@ public class Team4ToDoList {
 		switch(input){
 		case 1:
 			System.out.println("1");
+			showCurrentList();
 			break;
 			
 		case 2:
@@ -57,9 +60,9 @@ public class Team4ToDoList {
 	
 	public static void showCurrentList(){
 		ArrayList<String> list = new ArrayList<String>();
-		list.add("Fix bug no 1");
-		list.add("Fix bug no 2");
-		list.add("Fix bug no 3");
+		list.add("Do Task A");
+		list.add("Do Task B");
+		list.add("Do Task C");
 		
 		for (String s : list){
 			System.out.println(s);
